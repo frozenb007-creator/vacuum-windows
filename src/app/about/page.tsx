@@ -35,21 +35,23 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-medium uppercase tracking-widest text-slate-500">
+      <section className="relative pt-32 pb-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/60">
             Тухай
           </p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Илүү дулаан, чимээгүй, тогтвортой барилгын ирээдүйг бүтээж байна
+          <h1 className="mt-3 font-display text-5xl font-bold uppercase leading-[0.9] text-[var(--brand)] sm:text-6xl lg:text-7xl">
+            Илүү дулаан
+            <br />
+            Илүү тогтвортой
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
             Vacuum Window нь Монголын барилгын салбарт зориулсан вакуум шилэн
             цонхны үйлдвэрлэгч. Манай зорилго бол барилгын дулааны алдагдлыг
             эрс бууруулж, хүйтэн өвөл, халуун зунд илүү тав тухтай орчин
             бүрдүүлэх явдал юм.
           </p>
-          <p className="mt-3 max-w-3xl text-base text-slate-500 italic">
+          <p className="mt-3 max-w-3xl text-sm italic text-white/50">
             (Энэ бол түр зуурын text — компанийн жинхэнэ танилцуулга,
             түүхийг та өгсөний дараа нэмнэ.)
           </p>
@@ -57,20 +59,20 @@ export default function AboutPage() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="font-display text-2xl font-semibold uppercase text-[var(--brand)] sm:text-3xl">
             Тоон үзүүлэлт
           </h2>
           <dl className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
             {stats.map((s) => (
               <div
                 key={s.k}
-                className="rounded-2xl border border-slate-200 bg-white p-6"
+                className="rounded-2xl border border-white/10 bg-zinc-950 p-6"
               >
-                <dt className="text-xs uppercase tracking-wider text-slate-500">
+                <dt className="text-xs uppercase tracking-wider text-white/60">
                   {s.k}
                 </dt>
-                <dd className="mt-2 text-3xl font-bold text-slate-900">
+                <dd className="mt-2 font-display text-4xl font-bold text-white">
                   {s.v}
                 </dd>
               </div>
@@ -79,21 +81,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+      <section className="border-y border-white/10 bg-zinc-950/40">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="font-display text-2xl font-semibold uppercase text-[var(--brand)] sm:text-3xl">
             Үнэт зүйлс
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {values.map((v) => (
               <div
                 key={v.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6"
+                className="rounded-2xl border border-white/10 bg-black p-6"
               >
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="font-display text-lg font-semibold uppercase text-white">
                   {v.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <p className="mt-3 text-sm leading-relaxed text-white/70">
                   {v.description}
                 </p>
               </div>
@@ -102,21 +104,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-gradient-to-br from-[#0c2461] via-[#1e3a8a] to-[#38bdf8] px-8 py-12 text-white sm:px-12">
-            <h2 className="max-w-2xl text-3xl font-bold sm:text-4xl">
-              Хамтран ажиллах сонирхолтой юу?
+      <section>
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 px-8 py-12 sm:px-12">
+            <h2 className="font-display text-3xl font-bold uppercase text-white sm:text-4xl">
+              Хамтран ажиллах
+              <br />
+              сонирхолтой юу?
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-sky-100">
+            <p className="mt-4 max-w-2xl text-sm text-white/70 sm:text-base">
               Архитектор, барилгын ерөнхий гүйцэтгэгч, хувийн өрхүүдтэй адил
               ажиллана.
             </p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-block rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-            >
-              Холбоо барих →
+            <Link href="/contact" className="pill mt-8 inline-flex">
+              Холбоо барих
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+                className="h-4 w-4"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M8 7h9v9" />
+              </svg>
             </Link>
           </div>
         </div>

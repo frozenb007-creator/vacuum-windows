@@ -12,6 +12,7 @@ type Product = {
   category: string;
   title: string;
   description: string;
+  img: string;
   specs: { label: string; value: string }[];
 };
 
@@ -22,6 +23,7 @@ const products: Product[] = [
     title: "VW-Home Standard",
     description:
       "Айл өрхийн стандарт цонх. Дулаан тусгаарлалт өндөр, тоосноос болон чийгээс хамгаалсан хайстай.",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80&auto=format&fit=crop",
     specs: [
       { label: "U-value", value: "0.7 W/m²K" },
       { label: "Дуу тусгаарлалт", value: "32 dB" },
@@ -35,6 +37,7 @@ const products: Product[] = [
     title: "VW-Home Premium",
     description:
       "Туйлын хүйтэн уур амьсгалд тохирсон гурван давхар вакуум шил. Тусгай Low-E бүрхүүлтэй.",
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop",
     specs: [
       { label: "U-value", value: "0.4 W/m²K" },
       { label: "Дуу тусгаарлалт", value: "37 dB" },
@@ -48,6 +51,7 @@ const products: Product[] = [
     title: "VW-Office Curtain",
     description:
       "Оффисын фасадны том талбайн шилэн хана. Нарны халуунаас хамгаалах бүрхүүлтэй.",
+    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop",
     specs: [
       { label: "U-value", value: "0.6 W/m²K" },
       { label: "Дуу тусгаарлалт", value: "35 dB" },
@@ -61,6 +65,7 @@ const products: Product[] = [
     title: "VW-Storefront",
     description:
       "Дэлгүүр, ресторан, кафе зэргийн нүүрний шилэн хаалт. Дотогшоо харах талбай ил, дулаан хямсэг.",
+    img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80&auto=format&fit=crop",
     specs: [
       { label: "U-value", value: "0.7 W/m²K" },
       { label: "Дуу тусгаарлалт", value: "33 dB" },
@@ -74,6 +79,7 @@ const products: Product[] = [
     title: "VW-Industrial Clean",
     description:
       "Цэвэр өрөө, лабораторид зориулсан өндөр стандарттай вакуум шил. Тоос үл нэвтрэх битүүмжтэй.",
+    img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80&auto=format&fit=crop",
     specs: [
       { label: "U-value", value: "0.5 W/m²K" },
       { label: "Дуу тусгаарлалт", value: "38 dB" },
@@ -87,6 +93,7 @@ const products: Product[] = [
     title: "VW-Industrial Thermal",
     description:
       "Хүйтэн агуулах, дулаан үйлдвэрлэлийн өрөөнд тохирсон халаалт-хүйтэн ялгаа тэсвэрлэх шил.",
+    img: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80&auto=format&fit=crop",
     specs: [
       { label: "U-value", value: "0.4 W/m²K" },
       { label: "Температурын хязгаар", value: "−40°C – +120°C" },
@@ -101,27 +108,28 @@ const categories = ["Бүгд", "Орон сууц", "Арилжаа & оффи�
 export default function ProductsPage() {
   return (
     <>
-      <section className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm font-medium uppercase tracking-widest text-slate-500">
+      <section className="relative pt-32 pb-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/60">
             Бүтээгдэхүүн
           </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Вакуум шилэн цонхны жагсаалт
+          <h1 className="mt-3 font-display text-5xl font-bold uppercase leading-[0.9] text-[var(--brand)] sm:text-6xl lg:text-7xl">
+            Вакуум шилэн
+            <br />
+            цонхны жагсаалт
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600">
+          <p className="mt-6 max-w-2xl text-base text-white/75">
             Орон сууц, арилжааны барилга, үйлдвэрийн объектод тохирсон 6+
             төрлийн шийдэл. Хэмжээгээр захиалга боломжтой.
           </p>
-          {/* Category chips (display-only for now) */}
           <ul className="mt-8 flex flex-wrap gap-2">
             {categories.map((c, i) => (
               <li
                 key={c}
                 className={
                   i === 0
-                    ? "rounded-full bg-slate-900 px-4 py-1.5 text-sm font-medium text-white"
-                    : "rounded-full border border-slate-300 bg-white px-4 py-1.5 text-sm text-slate-700"
+                    ? "rounded-full bg-[var(--brand)] px-4 py-1.5 text-sm font-medium text-white"
+                    : "rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-sm text-white/80"
                 }
               >
                 {c}
@@ -132,33 +140,36 @@ export default function ProductsPage() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((p) => (
               <article
                 key={p.id}
                 id={p.id}
-                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
+                className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-950"
               >
-                <div
-                  aria-hidden
-                  className="aspect-[4/3] bg-gradient-to-br from-[#0c2461] via-[#1e3a8a] to-[#38bdf8]"
-                />
-                <div className="flex flex-1 flex-col p-6">
-                  <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs uppercase tracking-wider text-white backdrop-blur">
                     {p.category}
-                  </p>
-                  <h2 className="mt-1 text-xl font-semibold text-slate-900">
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h2 className="font-display text-xl font-semibold uppercase text-white">
                     {p.title}
                   </h2>
-                  <p className="mt-2 text-sm text-slate-600">{p.description}</p>
-                  <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-slate-200 pt-5 text-sm">
+                  <p className="mt-2 text-sm text-white/70">{p.description}</p>
+                  <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/10 pt-5 text-sm">
                     {p.specs.map((s) => (
                       <div key={s.label}>
-                        <dt className="text-xs uppercase tracking-wide text-slate-500">
+                        <dt className="text-xs uppercase tracking-wide text-white/50">
                           {s.label}
                         </dt>
-                        <dd className="mt-0.5 font-medium text-slate-900">
+                        <dd className="mt-0.5 font-medium text-white">
                           {s.value}
                         </dd>
                       </div>
@@ -166,7 +177,7 @@ export default function ProductsPage() {
                   </dl>
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex items-center text-sm font-semibold text-slate-900 hover:underline"
+                    className="mt-6 inline-flex items-center text-sm font-semibold text-[var(--brand)] hover:underline"
                   >
                     Үнийн санал авах →
                   </Link>
